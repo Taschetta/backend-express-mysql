@@ -26,16 +26,26 @@ export const useEndpoint = ({ controller }) => ({
   },
 
   async updateOne({ request }) {
+    let item 
+    
+    item = { ...request.body, id: request.params.id, }
+    item = await controller.updateOne(item)
+
+    
     return {
-      success: false,
-      message: 'Not Implemented'
+      success: true,
+      item,
     }
   },
 
-  async removeOne({ request   }) {
+  async removeOne({ request }) {
+    let id = request.params.id
+    let result = await controller.removeOne({ id })
+
     return {
-      success: false,
-      message: 'Not Implemented'
+      success: true,
+      removedId: +id,
+      removedCount: result
     }
   },
   
