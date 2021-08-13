@@ -1,0 +1,5 @@
+{
+  "name": "@packages/globals",
+  "main": "index.js",
+  "type": "module"
+}
